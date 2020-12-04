@@ -1,0 +1,164 @@
+.header {
+  width: 100%;
+  position: fixed;
+  // background-color: $blackColorSecond;
+  transition: background 0.2s;
+}
+
+.header__wrapper {
+  padding: 2rem 0;
+}
+
+.header__title {
+  margin: 0;
+}
+
+.navigation {
+  height: 100%;
+  width: 100%;
+  background-color: $blackColorSecond;
+  @include flex(column, center, center);
+  position: fixed;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  transform: translateX(100%);
+  z-index: 2;
+  transition: transform .3s .1s ease-in-out, visibility 0s .4s;
+}
+
+.navigation__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  line-height: 2;
+  text-align: center;
+}
+
+.navigation__link {
+  color: $whiteColor;
+  font-weight: 1.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  position: relative;
+  transition: color 0.2s;
+
+  &:hover,
+  &:focus {
+    color: $pinkColor;
+  }
+
+  &:hover::before,
+  &:focus::before,
+  &:hover::after,
+  &:focus::after {
+    content: "♪";
+    color: $pinkColor;
+    font-size: 1.5rem;
+    position: absolute;
+    bottom: -0.75rem;
+  }
+
+  &:hover::before,
+  &:focus::before {
+    left: -1.5rem;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    right: -1rem;
+  }
+}
+
+.navigation--active {
+  transform: translateX(0px);
+  transition: transform .3s .1s ease-in-out, visibility 0s 0s;
+  visibility: visible;
+}
+
+.hamburger {
+  width: 50px;
+  height: 45px;
+  display: inline-block;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border-radius: 5px;
+  z-index: 3;
+  position: absolute;
+  top: 2rem;
+  right: 1.5rem;
+  cursor: pointer;
+  transition: transform .3s .1s ease-in-out, visibility 0s .4s;
+
+  @media (min-width: $smallWidth) {
+    right: 3rem;
+  }
+}
+
+.hamburger__box {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  position: relative;
+}
+
+.hamburger__inner {
+  width: 100%;
+  height: 3px;
+  background-color: $whiteColor;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color 0.1s 0.2s ease-in-out;
+
+  &::before,
+  &::after {
+    content: "";
+    width: 100%;
+    height: 3px;
+    background-color: $whiteColor;
+    position: absolute;
+    left: 0;
+    transition: transform 0.2s 0.2s ease-in-out;
+  }
+
+  &::before {
+    top: -10px;
+  }
+
+  &::after {
+    top: 10px;
+  }
+}
+
+.hamburger--active {
+  background-color: transparent;
+
+  .hamburger__inner {
+    background-color: transparent;
+
+    &::before {
+      transform: translateY(10px) rotate(45deg);
+    }
+
+    &::after {
+      transform: translateY(-10px) rotate(-45deg);
+    }
+  }
+}
+
+/* scrolled */
+.header.scrolled {
+  background-color: $blackColorSecond;
+}
+ 
+.header__wrapper.scrolled {
+  padding: 1.2rem 0;
+}
+
+.hamburger.scrolled {
+  top: 1.2rem;
+}

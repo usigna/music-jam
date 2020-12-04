@@ -2,7 +2,8 @@
 @import "./modules/variables";
 @import "./modules/mixins";
 @import "./partials/normalize";
-// @import "./partials/header";
+@import "./partials/scrollbar";
+@import "./partials/header";
 
 /* general */
 *,
@@ -17,16 +18,16 @@ body {
   height: 100%;
   position: relative;
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  background-color: $blackColor;
 }
 
 body {
-  background-color: $blackColor;
+  overflow-x: hidden;
 }
 
 .wrapper {
   width: 90%;
-  max-width: 1004px;
+  max-width: 1250px;
   margin: 0 auto;
   font-family: "Work Sans", "Arial", sans-serif
 }
