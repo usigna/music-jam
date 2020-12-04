@@ -1,7 +1,6 @@
 .header {
   width: 100%;
   position: fixed;
-  // background-color: $blackColorSecond;
   transition: background 0.2s;
 }
 
@@ -45,7 +44,7 @@
 
   &:hover,
   &:focus {
-    color: $pinkColor;
+    color: $lightBlueColor;
   }
 
   &:hover::before,
@@ -53,7 +52,7 @@
   &:hover::after,
   &:focus::after {
     content: "♪";
-    color: $pinkColor;
+    color: $lightBlueColor;
     font-size: 1.5rem;
     position: absolute;
     bottom: -0.75rem;
