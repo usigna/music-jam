@@ -1,0 +1,18 @@
+@mixin flex($direction, $alignItems, $justifyContent) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $alignItems;
+  justify-content: $justifyContent;
+}
+
+@mixin hoverEffect($color) {
+  &:hover {
+    color: $color;
+    text-decoration: underline;
+  }
+
+  &:focus {
+    color: $color;
+    text-decoration: underline;
+  }
+}
