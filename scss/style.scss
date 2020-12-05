@@ -3,7 +3,6 @@
 @import "./modules/mixins";
 @import "./modules/animations";
 @import "./partials/normalize";
-@import "./partials/scrollbar";
 @import "./partials/header";
 @import "./partials/hero";
 @import "./partials/aboutus";
@@ -59,4 +58,36 @@ body {
   overflow: visible !important;
   width: auto !important;
   white-space: normal !important;
+}
+
+/* wave */
+.wave-top,
+.wave-bottom {
+  position: absolute;
+  left: 0;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.wave-top {
+  top: 0;
+}
+
+.wave-bottom {
+  bottom: 0;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2.5px 2px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(1, 46, 113);
+  background: linear-gradient(180deg, rgba(1, 46, 113, 1) 0%, rgba(25, 179, 173, 1) 100%);
+  border-radius: 6px;
 }

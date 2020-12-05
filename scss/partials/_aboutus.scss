@@ -1,3 +1,7 @@
+.about-us {
+  padding: 2rem 0;
+}
+
 .about-us__wrapper {
   color: $whiteColor;
 }
@@ -5,9 +9,11 @@
 .about-us__box {
   line-height: 1.5;
   margin-bottom: 3rem;
+  padding: 0 0.5rem;
 
   @media (min-width: $mediumWidth) {
     margin-bottom: 4.5rem;
+    padding: 0;
   }
 }
 

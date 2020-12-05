@@ -1,5 +1,5 @@
 .hero {
-  padding: 12rem 0;
+  padding: 12rem 0 6rem;
 }
 
 .hero__wrapper {
@@ -24,14 +24,14 @@
 .heroBtn {
   width: 180px;
   height: 60px;
-  background: $blackColorSecond;
-  color: $whiteColor;
+  background: $whiteColor;
+  color: $blackColorSecond;
   text-decoration: none;
   text-transform: uppercase;
   text-align: center;
   line-height: 60px;
   font-weight: 700;
-  transition: background 0.5s color 0.1s;
+  transition: background 0.5s;
   margin: 1rem 0;
 }
 
@@ -39,7 +39,6 @@
 .heroBtn:focus {
   background: $lightBlueColor;
   background-image: url("../img/pixel.png");
-  color: $blackColorSecond;
   transition-delay: 0.8s;
   background-size: 180px;
   animation: btn 0.8s steps(8) forwards;
