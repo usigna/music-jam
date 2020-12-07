@@ -4,15 +4,3 @@
   align-items: $alignItems;
   justify-content: $justifyContent;
 }
-
-@mixin hoverEffect($color) {
-  &:hover {
-    color: $color;
-    text-decoration: underline;
-  }
-
-  &:focus {
-    color: $color;
-    text-decoration: underline;
-  }
-}

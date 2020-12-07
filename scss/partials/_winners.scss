@@ -1,0 +1,62 @@
+.winners {
+  padding: 2rem 0;
+}
+
+.winners__wrapper {
+  color: $whiteColor;
+  padding: 0 0.5rem;
+
+  @media (min-width: $mediumWidth) {
+    padding: 0;
+  }
+}
+
+.winners__list {
+  margin: 0 0 2rem;
+  padding: 0;
+  list-style: none;
+
+  li {
+    margin: 1rem 0;
+    line-height: 1.5;
+  }
+
+  a {
+    color: $whiteColor;
+    transition: color 0.2s;
+
+    &:hover,
+    &:focus {
+      color: $lightBlueColor;
+    }
+  }
+}
+
+.winners__icon {
+  margin-right: 0.5rem;
+  font-size: 1.5rem;
+
+  &--first {
+    color: gold;
+  }
+
+  &--second {
+    color: silver;
+  }
+
+  &--third {
+    color: burlywood;
+  }
+}
+
+.summary {
+  color: $whiteColor;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: color 0.2s;
+
+  &:hover,
+  &:focus {
+    color: $lightBlueColor;
+  }
+}
