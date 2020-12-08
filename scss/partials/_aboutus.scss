@@ -10,6 +10,7 @@
   line-height: 1.5;
   margin-bottom: 3rem;
   padding: 0 0.5rem;
+
   &:last-of-type {
     margin-bottom: 0;
   }
@@ -30,6 +31,10 @@
 .about-us__list {
   margin: 0;
   padding: 0;
+
+  @media (min-width: $mediumWidth) {
+    padding-left: 1rem;
+  }
 
   li {
     margin: 0.5rem 0;
