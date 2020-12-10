@@ -12,10 +12,10 @@
 }
 
 .timetable__boxes {
-  @include flex(column, center, center);
+  @include flex(column, flex-start, center);
 
   @media (min-width: $mediumWidth) {
-    @include flex(row, center, space-between);
+    @include flex(row, flex-start, space-between);
   }
 }
 
@@ -32,6 +32,7 @@
   border: 5px solid $whiteColor;
   margin: 1rem 0;
   padding: 1rem 0.5rem;
+  line-height: 1.5;
   text-align: center;
   position: relative;
   z-index: -1;

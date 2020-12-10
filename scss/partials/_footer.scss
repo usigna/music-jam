@@ -1,0 +1,26 @@
+.footer {
+  padding: 1.5rem 0;
+  background: $blackColorSecond;
+}
+
+.footer__wrapper {
+  color: $whiteColor;
+  text-align: center;
+  @include flex(column, center, center);
+
+  a {
+    color: $whiteColor;
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover,
+    &:focus {
+      color: $lightBlueColor;
+      text-decoration: underline;
+    }
+  }
+
+  @media (min-width: $mediumWidth) {
+    @include flex(row, center, space-between);
+  }
+}
