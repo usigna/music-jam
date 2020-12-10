@@ -1,0 +1,44 @@
+.event {
+  padding: 2rem 0;
+}
+
+.event__wrapper {
+  color: $whiteColor;
+  padding: 0 0.5rem;
+
+  p {
+    padding: 0.5rem 0;
+    line-height: 1.5;
+
+    a {
+      color: $whiteColor;
+
+      &:hover,
+      &:focus {
+        color: $lightBlueColor;
+      }
+    }
+  }
+
+  @media (min-width: $mediumWidth) {
+    padding: 0;
+  }
+}
+
+.event__list {
+  padding: 0 0 0 1rem;
+  line-height: 1.5;
+  
+  li {
+    margin: 0.5rem 0;
+  }
+
+  a {
+    color: $whiteColor;
+
+    &:hover,
+    &:focus {
+      color: $lightBlueColor;
+    }
+  }
+}
