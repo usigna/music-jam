@@ -1,8 +1,8 @@
-.timetable {
+.faq {
   padding: 2rem 0;
 }
 
-.timetable__wrapper {
+.faq__wrapper {
   color: $whiteColor;
   padding: 0 0.5rem;
 
@@ -11,31 +11,26 @@
   }
 }
 
-.timetable__boxes {
-  @include flex(column, flex-start, center);
+.faq__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 
-  @media (min-width: $mediumWidth) {
-    @include flex(row, flex-start, space-between);
+  li {
+    margin: 1.5rem 0;
   }
 }
 
-.timetable__day {
+.faq__btn {
   width: 100%;
-
-  @media (min-width: $mediumWidth) {
-    width: 48%;
-  }
-}
-
-.timetable__box {
+  color: $whiteColor;
   background: $greenColor;
   border: 5px solid $whiteColor;
-  margin: 1rem 0;
-  padding: 1rem 0.5rem;
   line-height: 1.5;
-  text-align: center;
+  padding: 1rem 1.5rem;
+  @include flex (row, center, space-between);
   position: relative;
-  z-index: -1;
+  z-index: 0;
 
   &::before,
   &::after {
@@ -56,7 +51,7 @@
   }
 }
 
-.frame {
+.btn__frame {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -82,6 +77,22 @@
   }
 }
 
-.timetable__time {
-  font-weight: 700;
+.faq__icon {
+  margin-left: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.faq__sect {
+  padding: 1rem;
+  line-height: 1.5;
+  display: none;
+
+  a {
+    color: $whiteColor;
+
+    &:hover,
+    &:focus {
+      color: $lightBlueColor;
+    }
+  }
 }

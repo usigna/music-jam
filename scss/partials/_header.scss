@@ -22,7 +22,7 @@
   left: 0;
   visibility: hidden;
   transform: translateX(100%);
-  z-index: 2;
+  z-index: 3;
   transition: transform .3s .1s ease-in-out, visibility 0s .4s;
 }
 
@@ -32,7 +32,7 @@
   padding: 0;
   line-height: 2;
   text-align: center;
-  z-index: 3;
+  z-index: 4;
 }
 
 .navigation__link {
@@ -85,7 +85,7 @@
   padding: 0;
   background-color: transparent;
   border-radius: 5px;
-  z-index: 3;
+  z-index: 4;
   position: absolute;
   top: 2rem;
   right: 1.5rem;
