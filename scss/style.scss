@@ -3,14 +3,6 @@
 @import "./modules/mixins";
 @import "./modules/animations";
 @import "./partials/normalize";
-@import "./partials/header";
-@import "./partials/hero";
-@import "./partials/aboutus";
-@import "./partials/winners";
-@import "./partials/timetable";
-@import "./partials/event";
-@import "./partials/faq";
-@import "./partials/footer";
 
 /* general */
 *,
@@ -23,12 +15,12 @@ html,
 body {
   width: 100%;
   height: 100%;
-  position: relative;
   scroll-behavior: smooth;
   background-color: $blackColor;
 }
 
 body {
+  position: relative;
   overflow-x: hidden;
 }
 
@@ -95,4 +87,623 @@ body {
   background: rgb(25, 179, 173);
   background: linear-gradient(180deg, rgba(25, 179, 173, 0.25) 0%, rgba(25, 179, 173, 1) 100%);
   border-radius: 6px;
+}
+
+/* header */
+.header {
+  width: 100%;
+  position: fixed;
+  transition: background 0.2s;
+  z-index: 2;
+}
+
+.header__wrapper {
+  padding: 2rem 0;
+}
+
+.header__title {
+  margin: 0;
+}
+
+.navigation {
+  height: 100%;
+  width: 100%;
+  background-color: $blackColorSecond;
+  @include flex(column, center, center);
+  position: fixed;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  transform: translateX(100%);
+  z-index: 5;
+  transition: transform .3s .1s ease-in-out, visibility 0s .4s;
+}
+
+.navigation__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  line-height: 2;
+  text-align: center;
+  z-index: 5;
+}
+
+.navigation__link {
+  color: $whiteColor;
+  font-weight: 1.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  position: relative;
+  transition: color 0.2s;
+
+  &:hover,
+  &:focus {
+    color: $lightBlueColor;
+  }
+
+  &:hover::before,
+  &:focus::before,
+  &:hover::after,
+  &:focus::after {
+    content: "♪";
+    color: $lightBlueColor;
+    font-size: 1.5rem;
+    position: absolute;
+    bottom: -0.75rem;
+  }
+
+  &:hover::before,
+  &:focus::before {
+    left: -1.5rem;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    right: -1.5rem;
+  }
+}
+
+.navigation--active {
+  transform: translateX(0px);
+  transition: transform .3s .1s ease-in-out, visibility 0s 0s;
+  visibility: visible;
+}
+
+.hamburger {
+  width: 50px;
+  height: 45px;
+  display: inline-block;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border-radius: 5px;
+  z-index: 6;
+  position: absolute;
+  top: 2rem;
+  right: 1.5rem;
+  cursor: pointer;
+  transition: transform .3s .1s ease-in-out, visibility 0s .4s;
+
+  @media (min-width: $smallWidth) {
+    right: 3rem;
+  }
+}
+
+.hamburger__box {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  position: relative;
+}
+
+.hamburger__inner {
+  width: 100%;
+  height: 3px;
+  background-color: $whiteColor;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color 0.1s 0.2s ease-in-out;
+
+  &::before,
+  &::after {
+    content: "";
+    width: 100%;
+    height: 3px;
+    background-color: $whiteColor;
+    position: absolute;
+    left: 0;
+    transition: transform 0.2s 0.2s ease-in-out;
+  }
+
+  &::before {
+    top: -10px;
+  }
+
+  &::after {
+    top: 10px;
+  }
+}
+
+.hamburger--active {
+  background-color: transparent;
+
+  .hamburger__inner {
+    background-color: transparent;
+
+    &::before {
+      transform: translateY(10px) rotate(45deg);
+    }
+
+    &::after {
+      transform: translateY(-10px) rotate(-45deg);
+    }
+  }
+}
+
+/* scrolled */
+.header.scrolled {
+  background-color: $blackColorSecond;
+}
+ 
+.header__wrapper.scrolled {
+  padding: 1.2rem 0;
+}
+
+.hamburger.scrolled {
+  top: 1.2rem;
+}
+
+/* hero */
+.hero {
+  padding: 12rem 0 6rem;
+}
+
+.hero__wrapper {
+  color: $whiteColor;
+  @include flex(column, center, center);
+  text-align: center;
+
+  p {
+    font-size: 2rem;
+  }
+}
+
+.hero__title {
+  margin: 0 0 1rem;
+  font-size: 2.5rem;
+
+  @media (min-width: $smallWidth) {
+    font-size: 3.5rem;
+  }
+}
+
+.heroBtn {
+  width: 180px;
+  height: 60px;
+  background: $whiteColor;
+  color: $blackColorSecond;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 60px;
+  font-weight: 700;
+  transition: background 0.5s;
+  margin: 1rem 0;
+}
+
+.heroBtn:hover,
+.heroBtn:focus {
+  background: $lightBlueColor;
+  background-image: url("../img/pixel.png");
+  transition-delay: 0.8s;
+  background-size: 180px;
+  animation: btn 0.8s steps(8) forwards;
+}
+
+/* about us */
+.about-us {
+  padding: 2rem 0;
+}
+
+.about-us__wrapper {
+  color: $whiteColor;
+}
+
+.about-us__box {
+  line-height: 1.5;
+  margin-bottom: 3rem;
+  padding: 0 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: $mediumWidth) {
+    margin-bottom: 4.5rem;
+    padding: 0;
+  }
+}
+
+.section__title {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  line-height: 1.5;
+  margin: 0 0 1.5rem;
+}
+
+.about-us__list {
+  margin: 0;
+  padding: 0;
+
+  @media (min-width: $mediumWidth) {
+    padding-left: 1rem;
+  }
+
+  li {
+    margin: 0.5rem 0;
+  }
+}
+
+/* winners */
+.winners {
+  padding: 2rem 0;
+}
+
+.winners__wrapper {
+  color: $whiteColor;
+  padding: 0 0.5rem;
+
+  @media (min-width: $mediumWidth) {
+    padding: 0;
+  }
+}
+
+.winners__list {
+  margin: 0 0 2rem;
+  padding: 0;
+  list-style: none;
+
+  li {
+    margin: 1rem 0;
+    line-height: 1.5;
+  }
+
+  a {
+    color: $whiteColor;
+    transition: color 0.2s;
+
+    &:hover,
+    &:focus {
+      color: $lightBlueColor;
+    }
+  }
+}
+
+.winners__icon {
+  margin-right: 0.5rem;
+  font-size: 1.5rem;
+
+  &--first {
+    color: gold;
+  }
+
+  &--second {
+    color: silver;
+  }
+
+  &--third {
+    color: burlywood;
+  }
+}
+
+.summary {
+  color: $whiteColor;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: color 0.2s;
+
+  &:hover,
+  &:focus {
+    color: $lightBlueColor;
+  }
+}
+
+/* timetable */
+.timetable {
+  padding: 2rem 0;
+}
+
+.timetable__wrapper {
+  color: $whiteColor;
+  padding: 0 0.5rem;
+
+  @media (min-width: $mediumWidth) {
+    padding: 0;
+  }
+}
+
+.timetable__boxes {
+  @include flex(column, flex-start, center);
+
+  @media (min-width: $mediumWidth) {
+    @include flex(row, flex-start, space-between);
+  }
+}
+
+.timetable__day {
+  width: 100%;
+
+  @media (min-width: $mediumWidth) {
+    width: 48%;
+  }
+}
+
+.timetable__box {
+  background: $greenColor;
+  border: 5px solid $whiteColor;
+  margin: 1rem 0;
+  padding: 1rem 0.5rem;
+  line-height: 1.5;
+  text-align: center;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    width: 5px;
+    height: 5px;
+    background: $blackColor;
+    position: absolute;
+    left: -5px;
+  }
+
+  &::before {
+    top: -5px;
+  }
+
+  &::after {
+    bottom: -5px;
+  }
+}
+
+.frame {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  background: transparent;
+
+  &::before,
+  &::after {
+    content: "";
+    width: 5px;
+    height: 5px;
+    background: $blackColor;
+    position: absolute;
+    right: -5px;
+  }
+
+  &::before {
+    top: -5px;
+  }
+
+  &::after {
+    bottom: -5px;
+  }
+}
+
+.timetable__time {
+  font-weight: 700;
+}
+
+/* event */
+.event {
+  padding: 2rem 0;
+}
+
+.event__wrapper {
+  color: $whiteColor;
+  padding: 0 0.5rem;
+
+  p {
+    padding: 0.5rem 0;
+    line-height: 1.5;
+
+    a {
+      color: $whiteColor;
+
+      &:hover,
+      &:focus {
+        color: $lightBlueColor;
+      }
+    }
+  }
+
+  @media (min-width: $mediumWidth) {
+    padding: 0;
+  }
+}
+
+.event__list {
+  padding: 0 0 0 1rem;
+  line-height: 1.5;
+  
+  li {
+    margin: 0.5rem 0;
+  }
+
+  a {
+    color: $whiteColor;
+
+    &:hover,
+    &:focus {
+      color: $lightBlueColor;
+    }
+  }
+}
+
+/* faq */
+.faq {
+  padding: 2rem 0;
+}
+
+.faq__wrapper {
+  color: $whiteColor;
+  padding: 0 0.5rem;
+
+  @media (min-width: $mediumWidth) {
+    padding: 0;
+  }
+}
+
+.faq__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    margin: 1.5rem 0;
+  }
+}
+
+.faq__btn {
+  width: 100%;
+  color: $whiteColor;
+  background: $greenColor;
+  border: 5px solid $whiteColor;
+  line-height: 1.5;
+  padding: 1rem 1.5rem;
+  @include flex (row, center, space-between);
+  position: relative;
+  z-index: 0;
+  transition: border 0.2s;
+
+  &::before,
+  &::after {
+    content: "";
+    width: 5px;
+    height: 5px;
+    background: $blackColor;
+    position: absolute;
+    left: -5px;
+  }
+
+  &::before {
+    top: -5px;
+  }
+
+  &::after {
+    bottom: -5px;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: $lightBlueColor;
+  }
+}
+
+.btn__frame {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  &::before,
+  &::after {
+    content: "";
+    width: 5px;
+    height: 5px;
+    background: $blackColor;
+    position: absolute;
+    right: -5px;
+  }
+
+  &::before {
+    top: -5px;
+  }
+
+  &::after {
+    bottom: -5px;
+  }
+}
+
+.faq__icon {
+  margin-left: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.faq__sect {
+  padding: 1rem;
+  line-height: 1.5;
+  display: none;
+
+  a {
+    color: $whiteColor;
+
+    &:hover,
+    &:focus {
+      color: $lightBlueColor;
+    }
+  }
+}
+
+/* partners */
+
+/* statute */
+.statute {
+  padding: 3.5rem 0;
+}
+
+.statute__wrapper {
+  padding: 0 0.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  a {
+    font-size: 1.5rem;
+    color: $whiteColor;
+    transition: color 0.2s;
+    &:hover,
+    &:focus {
+      color: $lightBlueColor;
+    }
+  }
+
+  @media (min-width: $mediumWidth) {
+    padding: 0;
+  }
+}
+
+/* footer */
+.footer {
+  padding: 1.5rem 0;
+  background: $blackColorSecond;
+}
+
+.footer__wrapper {
+  color: $whiteColor;
+  text-align: center;
+  @include flex(column, center, center);
+
+  a {
+    color: $whiteColor;
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover,
+    &:focus {
+      color: $lightBlueColor;
+      text-decoration: underline;
+    }
+  }
+
+  @media (min-width: $mediumWidth) {
+    @include flex(row, center, space-between);
+  }
 }
