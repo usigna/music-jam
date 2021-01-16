@@ -77,11 +77,39 @@ function showAnswer() {
   }
 }
 
+function useScrollReveal() {
+  const slideLeft = {
+      distance: "150%",
+      origin: "left",
+      delay: "250",
+      opacity: null
+  };
+
+  ScrollReveal().reveal(".header__wrapper, .hero, .statute__wrapper, .footer__wrapper", { delay: 500 });
+  ScrollReveal().reveal(".about-us__wrapper, .winners__wrapper, .timetable__wrapper, .event__wrapper, .faq__wrapper, .partners__wrapper", slideLeft);
+}
+
+function showAnimations() {
+    const mobile = window.matchMedia("screen and (min-width: 992px)");
+
+    if (mobile.matches) {
+        useScrollReveal();
+    }
+
+    mobile.addListener( function(mobile) {
+        if (mobile.matches) {
+            useScrollReveal();
+        }
+    });
+};
+
+
 const init = function () {
   changeTitle();
   showHamburgerMenu();
   showHeader();
   showAnswer();
+  showAnimations();
 };
 
 document.addEventListener("DOMContentLoaded", init);
