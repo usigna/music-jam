@@ -335,7 +335,7 @@ body {
 }
 
 .about-us__list {
-  margin: 0;
+  margin: 0 0 0 1rem;
   padding: 0;
 
   @media (min-width: $mediumWidth) {
@@ -827,12 +827,12 @@ body {
 }
 
 .decoration-icon--event {
-  bottom: -10%;
+  bottom: 0;
   right: -10%;
   font-size: 10rem;
 
   @media (min-width: $mediumWidth) {
-    font-size: 50rem;
+    font-size: 45rem;
   }
 }
 
